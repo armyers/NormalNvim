@@ -17,7 +17,7 @@ base.default_colorscheme = "tokyonight-night"
 local options = {
   opt = {
     breakindent = true, -- Wrap indent to match  line start.
-    clipboard = "unnamedplus", -- Connection to the system clipboard.
+    clipboard = "", -- Connection to the system clipboard.
     cmdheight = 0, -- hide command line unless needed.
     completeopt = { "menu", "menuone", "noselect" }, -- Options for insert mode completion.
     copyindent = true, -- Copy the previous indentation on autoindenting.
@@ -63,7 +63,7 @@ local options = {
     mousescroll = "ver:1,hor:0", -- Disables hozirontal scroll in neovim.
     guicursor = "n:blinkon200,i-ci-ve:ver25", -- Enable cursor blink.
     autochdir = true, -- Use current file dir as working dir (See project.nvim).
-    scrolloff = 1000, -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
+    scrolloff = 0, -- Number of lines to leave before/after the cursor when scrolling. Setting a high value keep the cursor centered.
     sidescrolloff = 8, -- Same but for side scrolling.
     selection = "old", -- Don't select the newline symbol when using <End> on visual mode.
   },
@@ -96,7 +96,7 @@ local android = vim.fn.isdirectory('/system') == 1   -- true if on android
 if android then
   vim.opt.mouse = "v"
 else
-  vim.opt.mouse = "a"
+  vim.opt.mouse = ""
 end
 
 -- append/remove

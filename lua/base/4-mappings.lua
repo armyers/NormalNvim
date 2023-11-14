@@ -86,6 +86,7 @@ local icons = {
 }
 
 -- standard Operations -----------------------------------------------------
+maps.n[";"] = { ":", desc = "enter command mode" }
 maps.n["j"] =
 { "v:count == 0 ? 'gj' : 'j'", expr = true, desc = "Move cursor down" }
 maps.n["k"] =
@@ -98,10 +99,10 @@ maps.n["gx"] =
 { utils.system_open, desc = "Open the file under cursor with system app" }
 maps.n["<C-s>"] = { "<cmd>w!<cr>", desc = "Force write" }
 maps.n["|"] = { "<cmd>vsplit<cr>", desc = "Vertical Split" }
-maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
+maps.n["_"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 maps.i["<C-BS>"] = { "<C-W>", desc = "Enable CTRL+backsace to delete." }
-maps.n["0"] =
-{ "^", desc = "Go to the fist character of the line (aliases 0 to ^)" }
+-- maps.n["0"] =
+-- { "^", desc = "Go to the fist character of the line (aliases 0 to ^)" }
 maps.n["<leader>q"] = { "<cmd>confirm q<cr>", desc = "Quit" }
 maps.n["<leader>q"] = {
   function() require("base.utils").confirm_quit() end,
@@ -204,46 +205,46 @@ maps.x["<"] = { "<gv", desc = "unindent line" }
 maps.x[">"] = { ">gv", desc = "indent line" }
 
 -- improved gg --------------------------------------------------------------
-maps.n["gg"] = {
-  function()
-    vim.g.minianimate_disable = true
-    if vim.v.count > 0 then
-      vim.cmd("normal! " .. vim.v.count .. "gg")
-    else
-      vim.cmd "normal! gg0"
-    end
-    vim.g.minianimate_disable = false
-  end,
-  desc = "gg and go to the first position",
-}
-maps.n["G"] = {
-  function()
-    vim.g.minianimate_disable = true
-    vim.cmd "normal! G$"
-    vim.g.minianimate_disable = false
-  end,
-  desc = "G and go to the last position",
-}
-maps.x["gg"] = {
-  function()
-    vim.g.minianimate_disable = true
-    if vim.v.count > 0 then
-      vim.cmd("normal! " .. vim.v.count .. "gg")
-    else
-      vim.cmd "normal! gg0"
-    end
-    vim.g.minianimate_disable = false
-  end,
-  desc = "gg and go to the first position (visual)",
-}
-maps.x["G"] = {
-  function()
-    vim.g.minianimate_disable = true
-    vim.cmd "normal! G$"
-    vim.g.minianimate_disable = false
-  end,
-  desc = "G and go to the last position (visual)",
-}
+-- maps.n["gg"] = {
+--   function()
+--     vim.g.minianimate_disable = true
+--     if vim.v.count > 0 then
+--       vim.cmd("normal! " .. vim.v.count .. "gg")
+--     else
+--       vim.cmd "normal! gg0"
+--     end
+--     vim.g.minianimate_disable = false
+--   end,
+--   desc = "gg and go to the first position",
+-- }
+-- maps.n["G"] = {
+--   function()
+--     vim.g.minianimate_disable = true
+--     vim.cmd "normal! G$"
+--     vim.g.minianimate_disable = false
+--   end,
+--   desc = "G and go to the last position",
+-- }
+-- maps.x["gg"] = {
+--   function()
+--     vim.g.minianimate_disable = true
+--     if vim.v.count > 0 then
+--       vim.cmd("normal! " .. vim.v.count .. "gg")
+--     else
+--       vim.cmd "normal! gg0"
+--     end
+--     vim.g.minianimate_disable = false
+--   end,
+--   desc = "gg and go to the first position (visual)",
+-- }
+-- maps.x["G"] = {
+--   function()
+--     vim.g.minianimate_disable = true
+--     vim.cmd "normal! G$"
+--     vim.g.minianimate_disable = false
+--   end,
+--   desc = "G and go to the last position (visual)",
+-- }
 maps.n["<C-a>"] = { -- to move to the previous position press ctrl + oo
   function()
     vim.g.minianimate_disable = true
@@ -377,7 +378,7 @@ maps.n["<leader>bsm"] = {
   function() require("base.utils.buffer").sort "modified" end,
   desc = "Sort by modification (buffers)",
 }
-maps.n["<leader>b\\"] = {
+maps.n["<leader>b_"] = {
   function()
     require("base.utils.status").heirline.buffer_picker(function(bufnr)
       vim.cmd.split()

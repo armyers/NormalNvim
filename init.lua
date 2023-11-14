@@ -23,3 +23,6 @@ if base.default_colorscheme then
     )
   end
 end
+
+-- load some overrides
+require("overrides.highlights")
