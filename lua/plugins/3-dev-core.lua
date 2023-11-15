@@ -324,6 +324,16 @@ return {
           -- https://github.com/bash-lsp/bash-language-server/issues/933
           nls.builtins.code_actions.shellcheck,
           nls.builtins.diagnostics.shellcheck.with { diagnostics_format = "" },
+          nls.builtins.completion.spell,
+          nls.builtins.completion.tags,
+          nls.builtins.formatting.stylua,
+          nls.builtins.formatting.terraform_fmt,
+          nls.builtins.formatting.trim_whitespace,
+          nls.builtins.formatting.yamlfmt,
+          nls.builtins.hover.dictionary,
+          nls.builtins.diagnostics.pylint,
+          nls.builtins.formatting.isort,
+          nls.builtins.formatting.yapf,
         },
         on_attach = require("base.utils.lsp").on_attach,
       }
@@ -349,7 +359,8 @@ return {
       "saadparwaiz1/cmp_luasnip",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-nvim-lsp"
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
     },
     event = "InsertEnter",
     opts = function()
@@ -483,7 +494,4 @@ return {
       }
     end,
   },
-
-
-
 } -- end of return

@@ -518,7 +518,7 @@ return {
 
       -- 1. Update tabs when adding new buffers
       vim.api.nvim_create_autocmd({ "BufAdd", "BufEnter", "TabNewEntered" }, {
-        desc = "Update buffers when adding new buffers",
+        desc = "Update tabs when adding new buffers",
         callback = function(args)
           local buf_utils = require "base.utils.buffer"
           if not vim.t.bufs then vim.t.bufs = {} end
@@ -539,7 +539,7 @@ return {
 
       -- 2. Update tabs when deleting buffers
       vim.api.nvim_create_autocmd("BufDelete", {
-        desc = "Update buffers when deleting buffers",
+        desc = "Update tabs when deleting buffers",
         callback = function(args)
           local removed
           for _, tab in ipairs(vim.api.nvim_list_tabpages()) do

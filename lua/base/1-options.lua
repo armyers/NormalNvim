@@ -53,7 +53,7 @@ local options = {
     virtualedit = "block", -- allow going past end of line in visual block mode.
     writebackup = false, -- Disable making a backup before overwriting a file.
 
-    -- Aditions
+    -- Additions
     shada = "!,'1000,<50,s10,h", -- Remember the last 1000 opened files
     undodir = vim.fn.stdpath "data" .. "/undodir", -- Chooses where to store the undodir.
     history = 1000, -- Number of commands to remember in a history table (per buffer).
@@ -74,7 +74,7 @@ local options = {
 
     -- All these options are toggleable with <space + l + u>
     autoformat_enabled = false, -- Enable auto formatting at start.
-    autopairs_enabled = false, -- Enable autopairs at start.
+    autopairs_enabled = true, -- Enable autopairs at start.
     cmp_enabled = true, -- Enable completion at start.
     codelens_enabled = true, -- Enable automatic codelens refreshing for lsp that support it.
     diagnostics_mode = 3, -- Set code linting (0=off, 1=only show in status line, 2=virtual text off, 3=all on).
@@ -98,6 +98,9 @@ if android then
 else
   vim.opt.mouse = ""
 end
+-- XXXXX this is here because 'android' == true on my Macos system
+-- because isdirectory() is case-insensitive so it's matching '/System'
+vim.opt.mouse = ""
 
 -- append/remove
 vim.opt.viewoptions:remove "curdir" -- Disable saving current directory with views.
